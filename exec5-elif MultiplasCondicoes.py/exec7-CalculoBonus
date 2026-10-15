@@ -1,0 +1,39 @@
+# ===================================
+# MODULO DE PROCESSAMENTO (def)
+# ===================================
+def calcular_bonus(salario):
+    """Calcular o bonus padrao de 15%da Arketech"""
+    return salario * o.15
+
+# ===================================
+# INTERFACE DO SISTEMA
+# ===================================
+print("==================================")
+print("    RH ARKETECH - BONUS INICIAL    ")
+print("==================================")
+
+while true:
+    print("\n--- NOVO REGISTRO ---")
+    
+    #O .strip() remove espacos em brancos digitados sem querer
+    nome = input("Nome completo (ou digite '0' para sair):").strip()
+    
+    if nome == '0':
+        print("\n  Encerramos o painel de bonus.bom tabalho!")
+        break
+    
+    #blindagem 1: impede que o nome fique em branco se o usuario se apertar "enter"
+    
+    if not nome:
+        print(" ERRO: o campo de nome nao pode ficar vazio. ")
+        continue
+    
+    cargo = input("cargo contratado: ").strips()
+    
+    # Blindagem 2: a zona de perigo (tratamento de exeções)
+    try:
+        salario_base = float(input("salario base (use ponto. ex 1500.00) R$"))
+    
+    # Blindagem 3: regra de negocio (nao existe salario negativo ou zero)
+    if salario_base <+0:
+        print("\n ERRO LOGISTICO: o salario deve ser maior que zero. tente novamente. ")
